@@ -542,7 +542,38 @@ export function Cover() {
                     />
                   </div>
                 </div>
+                             
+              {/* Floating badge */}
+                <div 
+                  className="absolute -left-32 top-20 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-gray-200/50"
+                  style={{
+                    animation: 'float 3.5s ease-in-out infinite',
+                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+                    animationDelay: '0.5s',
+                  }}
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                    <span className="text-[10px] font-bold text-gray-700">Real-time Tracking</span>
+                  </div>
+                </div>
 
+                <div 
+                  className="absolute -right-24 -bottom-12 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-blue-200/50"
+                  style={{
+                    animation: 'float 3.5s ease-in-out infinite',
+                    boxShadow: '0 20px 50px rgba(59, 130, 246, 0.15), 0 0 0 1px rgba(59, 130, 246, 0.1)',
+                    animationDelay: '1.5s',
+                  }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold text-blue-600">Cross-Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Footer bar */}
         <div className="relative border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
           <div className="max-w-[1600px] mx-auto px-8 lg:px-16 py-6">
