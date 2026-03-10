@@ -265,7 +265,7 @@ export function Cover() {
                 >
                   {/* Screen */}
                   <div 
-                    className="relative w-[620px] h-auto bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
+                    className="relative w-[620px] h-[400px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
                     style={{
                       boxShadow: `
                         0 40px 80px rgba(0, 0, 0, 0.5),
