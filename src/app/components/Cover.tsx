@@ -110,7 +110,7 @@ export function Cover() {
         }
       `}</style>
 
-      <section className="relative min-h-screen bg-[#0A1628] flex flex-col overflow-visible">
+      <section className="relative min-h-screen bg-[#0A1628] flex flex-col overflow-hidden">
         {/* Subtle noise texture */}
         <div 
           className="absolute inset-0 opacity-[0.015] pointer-events-none"
@@ -136,17 +136,17 @@ export function Cover() {
           }}
         />
 
-        <div className="relative flex-1 max-w-[1600px] mx-auto w-full px-8 lg:px-16 flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-16 lg:gap-24 items-center w-full py-24">
+        <div className="relative flex-1 max-w-[1600px] mx-auto w-full px-4 sm:px-8 lg:px-16 flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center w-full py-12 lg:py-24">
             
             {/* Left: Content */}
-            <div className="space-y-10 max-w-2xl">
+            <div className="space-y-8 lg:space-y-10 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Label */}
               <div 
                 className={`inline-flex items-center gap-3 ${isLoaded ? 'animate-in' : 'opacity-0'}`}
                 style={{ animationDelay: '0.1s' }}
               >
-                <div className="h-px w-12 bg-gradient-to-r from-[#E31E25] to-transparent" />
+                <div className="h-px w-12 bg-gradient-to-r from-[#E31E25] to-transparent hidden lg:block" />
                 <span 
                   className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#E31E25]/90"
                   style={{ fontFamily: 'DM Sans, sans-serif' }}
@@ -214,7 +214,7 @@ export function Cover() {
 
               {/* Tags */}
               <div 
-                className={`flex flex-wrap gap-3 ${isLoaded ? 'animate-in' : 'opacity-0'}`}
+                className={`flex flex-wrap gap-3 justify-center lg:justify-start ${isLoaded ? 'animate-in' : 'opacity-0'}`}
                 style={{ animationDelay: '0.5s' }}
               >
                 {["UX Research", "UI Design", "Prototyping", "Mobile-First"].map((tag) => (
@@ -227,11 +227,61 @@ export function Cover() {
                   </span>
                 ))}
               </div>
+
+              {/* Mobile-only: compact refund tracker preview */}
+              <div 
+                className={`block lg:hidden mt-2 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 ${isLoaded ? 'animate-in' : 'opacity-0'}`}
+                style={{ animationDelay: '0.6s' }}
+              >
+                <div className="h-7 bg-gray-50 border-b border-gray-200 flex items-center px-3 gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 bg-white rounded px-2 py-0.5 text-[9px] text-gray-400 font-medium">
+                    makemytrip.com/refunds/tracking
+                  </div>
+                </div>
+                <div className="p-4 bg-gradient-to-br from-gray-50 to-white">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <div className="text-base font-bold text-gray-900" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Refund Tracker</div>
+                      <div className="text-[10px] text-gray-500">Real-time refund status monitoring</div>
+                    </div>
+                    <div className="bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full text-[9px] font-semibold border border-emerald-200">● Live</div>
+                  </div>
+                  <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm">
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-[9px] font-semibold text-gray-700">Booking Reference</div>
+                        <div className="text-[10px] text-gray-500">#NF28476 • DEL → BOM</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-[9px] text-gray-500">Initiated</div>
+                        <div className="text-[10px] font-semibold text-gray-700">Mar 8, 2026</div>
+                      </div>
+                    </div>
+                    <div className="relative mb-3">
+                      <div className="absolute top-3 left-3 right-3 h-[2px] bg-gray-200"></div>
+                      <div className="absolute top-3 left-3 w-[45%] h-[2px] bg-gradient-to-r from-emerald-500 to-blue-500"></div>
+                      <div className="relative flex justify-between">
+                        {[{ label: 'Requested', s: 'complete', i: '✓' }, { label: 'Processing', s: 'active', i: '2' }, { label: 'Approved', s: 'pending', i: '3' }, { label: 'Credited', s: 'pending', i: '4' }].map((step, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-1 z-10">
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold ${step.s === 'complete' ? 'bg-emerald-500 text-white' : step.s === 'active' ? 'bg-blue-500 text-white animate-pulse' : 'bg-gray-100 text-gray-400 border border-gray-200'}`}>{step.i}</div>
+                            <div className="text-[8px] font-medium text-gray-500 whitespace-nowrap">{step.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Right: 3D Devices */}
+            {/* Right: Devices */}
             <div 
-              className={`relative ${isLoaded ? 'animate-scale' : 'opacity-0'}`}
+              className={`relative w-full ${isLoaded ? 'animate-scale' : 'opacity-0'} hidden lg:flex justify-center items-center`}
               style={{
                 perspective: "3000px",
                 animationDelay: '0.4s',
@@ -239,7 +289,7 @@ export function Cover() {
             >
               <div
                 ref={devicesRef}
-                className="relative overflow-visible flex justify-center items-center"
+                className="relative overflow-visible flex justify-center items-center w-full"
                 style={{
                   transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translateZ(${Math.abs(rotation.x) + Math.abs(rotation.y) * 2}px)`,
                   transformStyle: "preserve-3d",
@@ -257,7 +307,7 @@ export function Cover() {
 
                 {/* Laptop */}
                 <div 
-                  className="relative z-10"
+                  className="relative z-10 w-full"
                   style={{
                     transform: 'translateZ(50px)',
                     transformStyle: 'preserve-3d',
@@ -265,8 +315,9 @@ export function Cover() {
                 >
                   {/* Screen */}
                   <div 
-                    className="relative w-[620px] h-[400px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
+                    className="relative w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
                     style={{
+                      aspectRatio: '16/10',
                       boxShadow: `
                         0 40px 80px rgba(0, 0, 0, 0.5),
                         0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -275,7 +326,7 @@ export function Cover() {
                     }}
                   >
                     {/* Screen bezel */}
-                    <div className="absolute top-[8px] left-[12px] right-[12px] bottom-[34px] border-[3px] border-black/80 rounded-lg overflow-hidden">
+                    <div className="absolute top-[8px] left-[12px] right-[12px] bottom-[8px] border-[3px] border-black/80 rounded-lg overflow-hidden">
                       {/* Content area */}
                       <div className="w-full h-full bg-white">
                         {/* Browser chrome */}
@@ -291,28 +342,28 @@ export function Cover() {
                         </div>
 
                         {/* Dashboard UI */}
-                        <div className="p-8 bg-gradient-to-br from-gray-50 to-white h-full">
+                        <div className="p-6 bg-gradient-to-br from-gray-50 to-white h-full overflow-hidden">
                           {/* Header */}
-                          <div className="flex items-start justify-between mb-8">
+                          <div className="flex items-start justify-between mb-6">
                             <div>
                               <h2 
-                                className="text-2xl font-bold text-gray-900 mb-1"
+                                className="text-xl font-bold text-gray-900 mb-1"
                                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                               >
                                 Refund Tracker
                               </h2>
-                              <p className="text-sm text-gray-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                              <p className="text-xs text-gray-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
                                 Real-time refund status monitoring
                               </p>
                             </div>
-                            <div className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-xs font-semibold border border-emerald-200">
+                            <div className="bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full text-xs font-semibold border border-emerald-200">
                               ● Live Tracking
                             </div>
                           </div>
 
                           {/* Progress Card */}
-                          <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm mb-6">
-                            <div className="flex items-center justify-between mb-5">
+                          <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm mb-4">
+                            <div className="flex items-center justify-between mb-4">
                               <div>
                                 <div className="text-xs font-semibold text-gray-700 mb-1">Booking Reference</div>
                                 <div className="text-sm text-gray-500">#NF28476 • DEL → BOM</div>
@@ -324,10 +375,8 @@ export function Cover() {
                             </div>
 
                             {/* Progress Timeline */}
-                            <div className="relative mb-6">
-                              {/* Background line */}
+                            <div className="relative mb-5">
                               <div className="absolute top-4 left-4 right-4 h-[2px] bg-gray-200"></div>
-                              {/* Active line */}
                               <div className="absolute top-4 left-4 w-[45%] h-[2px] bg-gradient-to-r from-emerald-500 to-blue-500"></div>
                               
                               <div className="relative flex justify-between">
@@ -358,27 +407,27 @@ export function Cover() {
                             </div>
 
                             {/* ETA Box */}
-                            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                            <div className="bg-blue-50 border border-blue-200 rounded-xl p-3">
                               <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-white text-lg">
+                                <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white text-base">
                                   ⏱
                                 </div>
                                 <div className="flex-1">
                                   <div className="text-xs font-semibold text-blue-900 mb-0.5">Expected Completion</div>
-                                  <div className="text-sm text-blue-700">3-5 business days</div>
+                                  <div className="text-xs text-blue-700">3-5 business days</div>
                                 </div>
                               </div>
                             </div>
                           </div>
 
                           {/* Info Grid */}
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-white rounded-xl border border-gray-200 p-4">
-                              <div className="text-xs text-gray-500 mb-2">Refund Amount</div>
-                              <div className="text-xl font-bold text-gray-900">₹4,850</div>
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-white rounded-xl border border-gray-200 p-3">
+                              <div className="text-xs text-gray-500 mb-1">Refund Amount</div>
+                              <div className="text-lg font-bold text-gray-900">₹4,850</div>
                             </div>
-                            <div className="bg-white rounded-xl border border-gray-200 p-4">
-                              <div className="text-xs text-gray-500 mb-2">Method</div>
+                            <div className="bg-white rounded-xl border border-gray-200 p-3">
+                              <div className="text-xs text-gray-500 mb-1">Method</div>
                               <div className="text-sm font-semibold text-gray-700">Original Payment</div>
                             </div>
                           </div>
@@ -397,7 +446,7 @@ export function Cover() {
 
                   {/* Laptop base */}
                   <div 
-                    className="relative w-[740px] h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-b-xl mx-auto"
+                    className="relative w-[110%] -ml-[5%] h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-b-xl"
                     style={{
                       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
                     }}
@@ -407,7 +456,7 @@ export function Cover() {
 
                   {/* Laptop shadow */}
                   <div 
-                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[680px] h-12 rounded-full blur-3xl"
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-full h-12 rounded-full blur-3xl"
                     style={{
                       background: 'radial-gradient(ellipse, rgba(0, 0, 0, 0.3) 0%, transparent 70%)',
                     }}
@@ -416,7 +465,7 @@ export function Cover() {
 
                 {/* iPhone - floating in front on the right */}
                 <div 
-                  className="absolute -right-24 bottom-2 z-50"
+                  className="absolute -right-6 bottom-2 z-50"
                   style={{
                     transform: 'translateZ(200px) rotateY(-10deg) rotateZ(3deg)',
                     transformStyle: 'preserve-3d',
@@ -543,33 +592,6 @@ export function Cover() {
                   </div>
                 </div>
                              
-              {/* Floating badge */}
-                <div 
-                  className="absolute -left-32 top-20 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-gray-200/50"
-                  style={{
-                    animation: 'float 3.5s ease-in-out infinite',
-                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-                    animationDelay: '0.5s',
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                    <span className="text-[10px] font-bold text-gray-700">Real-time Tracking</span>
-                  </div>
-                </div>
-
-                <div 
-                  className="absolute -right-24 -bottom-12 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-blue-200/50"
-                  style={{
-                    animation: 'float 3.5s ease-in-out infinite',
-                    boxShadow: '0 20px 50px rgba(59, 130, 246, 0.15), 0 0 0 1px rgba(59, 130, 246, 0.1)',
-                    animationDelay: '1.5s',
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold text-blue-600">Cross-Platform</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
