@@ -8,10 +8,10 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 const impact = [
-  { before: "62%", after: "18%", label: "Support calls for refund status", icon: "📞", color: "text-[#0D9E6E]", bg: "bg-emerald-50 border-emerald-100" },
-  { before: "3.2 min", after: "12 sec", label: "Time to find refund status", icon: "⏱", color: "text-[#1565C0]", bg: "bg-blue-50 border-blue-100" },
-  { before: "2.8★", after: "4.2★", label: "Refund-related App Store rating", icon: "⭐", color: "text-[#FF6F00]", bg: "bg-orange-50 border-orange-100" },
-  { before: "73%", after: "22%", label: "Chatbot escalations to human agent", icon: "🤖", color: "text-[#6C3FE8]", bg: "bg-purple-50 border-purple-100" },
+  { before: "62%", after: "18%", label: "Support calls for refund status", icon: "📞", color: "text-[#0D9E6E]", bg: "bg-emerald-50 border-emerald-100", showTilde: false },
+  { before: "3.2 min", after: "12 sec", label: "Time to find refund status", icon: "⏱", color: "text-[#1565C0]", bg: "bg-blue-50 border-blue-100", showTilde: true },
+  { before: "2.8★", after: "4.2★", label: "Refund-related app store rating", icon: "⭐", color: "text-[#FF6F00]", bg: "bg-orange-50 border-orange-100", showTilde: true },
+  { before: "73%", after: "22%", label: "Chatbot escalations to human agent", icon: "🤖", color: "text-[#6C3FE8]", bg: "bg-purple-50 border-purple-100", showTilde: true },
 ];
 
 const phases = [
@@ -69,7 +69,7 @@ export function ConclusionNextSteps() {
           What changes, and what comes next
         </h2>
         <p className="text-gray-500 text-lg max-w-2xl mb-14 leading-relaxed">
-          Projected impact from usability tests on the redesigned prototype — plus a phased roadmap to ship without waiting for a full redesign cycle.
+          Projected product impact of the redesigned refund experience — plus a phased roadmap to ship improvements without waiting for a full redesign cycle.
         </p>
 
         {/* Impact metrics */}
@@ -78,8 +78,30 @@ export function ConclusionNextSteps() {
             <div key={m.label} className={`border ${m.bg} rounded-2xl p-5 bg-white shadow-sm`}>
               <div className="text-2xl mb-3">{m.icon}</div>
               <div className="text-[10px] text-gray-400 uppercase tracking-wide mb-3 leading-relaxed font-bold">{m.label}</div>
+              <div className="flex items-center gap-3">
+                <div>
+                  <div className="text-[9px] text-gray-400 font-bold">Before</div>
+                  <div className="text-xl font-black text-gray-400">{m.before}</div>
+                </div>
+                <div className="text-gray-300 text-lg font-black">→</div>
+                <div>
+                  <div className="text-[9px] text-gray-400 font-bold">Projected After</div>
+                  <div className={`text-xl font-black ${m.color}`}>{m.showTilde ? "~" : ""}{m.after}</div>
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Shipping Strategy */}
+        <div className="mb-16">
+          <h3 className="text-xl font-black text-[#0D1B3E] mb-4">Shipping Strategy</h3>
+          <p className="text-gray-600 text-base leading-relaxed max-w-3xl mb-3">
+            Instead of waiting for a full product redesign, improvements to the refund experience can be shipped in incremental phases.
+          </p>
+          <p className="text-gray-600 text-base leading-relaxed max-w-3xl">
+            This approach allows the product team to reduce user anxiety quickly, validate improvements with real usage data, and progressively roll out more complex features like real-time tracking and support automation.
+          </p>
         </div>
 
         {/* Roadmap */}
