@@ -110,7 +110,7 @@ export function Cover() {
         }
       `}</style>
 
-      <section className="relative min-h-screen bg-[#0A1628] flex flex-col overflow-hidden">
+      <section className="relative min-h-screen bg-[#0A1628] flex flex-col overflow-visible">
         {/* Subtle noise texture */}
         <div 
           className="absolute inset-0 opacity-[0.015] pointer-events-none"
@@ -137,7 +137,7 @@ export function Cover() {
         />
 
         <div className="relative flex-1 max-w-[1600px] mx-auto w-full px-8 lg:px-16 flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-16 lg:gap-24 items-center w-full py-24">
             
             {/* Left: Content */}
             <div className="space-y-10 max-w-2xl">
@@ -416,9 +416,9 @@ export function Cover() {
 
                 {/* iPhone - floating in front on the right */}
                 <div 
-                  className="absolute -right-20 bottom-6 z-50"
+                  className="absolute -right-48 bottom-2 z-50"
                   style={{
-                    transform: 'translateZ(120px) rotateY(-8deg) rotateZ(2deg)',
+                    transform: 'translateZ(200px) rotateY(-10deg) rotateZ(3deg)',
                     transformStyle: 'preserve-3d',
                     animation: 'float 4s ease-in-out infinite',
                   }}
