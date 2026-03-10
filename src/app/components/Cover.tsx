@@ -230,8 +230,8 @@ export function Cover() {
             </div>
 
             {/* Right: 3D Devices */}
-            <div 
-              className={`relative ${isLoaded ? 'animate-scale' : 'opacity-0'}`}
+            <div
+              className={`relative w-full ${isLoaded ? 'animate-scale' : 'opacity-0'}`}
               style={{
                 perspective: "3000px",
                 animationDelay: '0.4s',
@@ -239,7 +239,7 @@ export function Cover() {
             >
               <div
                 ref={devicesRef}
-                className="relative"
+                className="relative mx-auto max-w-[600px] lg:max-w-full"
                 style={{
                   transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translateZ(${Math.abs(rotation.x) + Math.abs(rotation.y) * 2}px)`,
                   transformStyle: "preserve-3d",
@@ -248,7 +248,7 @@ export function Cover() {
                 }}
               >
                 {/* Ambient glow */}
-                <div 
+                <div
                   className="absolute inset-0 rounded-full blur-[140px] opacity-40"
                   style={{
                     background: 'radial-gradient(circle, rgba(232, 30, 37, 0.3) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%)',
@@ -256,16 +256,16 @@ export function Cover() {
                 />
 
                 {/* Laptop */}
-                <div 
-                  className="relative z-10"
+                <div
+                  className="relative mx-auto"
                   style={{
                     transform: 'translateZ(50px)',
                     transformStyle: 'preserve-3d',
                   }}
                 >
                   {/* Screen */}
-                  <div 
-                    className="relative w-[700px] h-[440px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
+                  <div
+                    className="relative w-full max-w-[700px] mx-auto aspect-video bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
                     style={{
                       boxShadow: `
                         0 40px 80px rgba(0, 0, 0, 0.5),
@@ -396,8 +396,8 @@ export function Cover() {
                   </div>
 
                   {/* Laptop base */}
-                  <div 
-                    className="relative w-[740px] h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-b-xl mx-auto"
+                  <div
+                    className="relative w-full max-w-[740px] h-5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 rounded-b-xl mx-auto"
                     style={{
                       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
                     }}
@@ -406,8 +406,8 @@ export function Cover() {
                   </div>
 
                   {/* Laptop shadow */}
-                  <div 
-                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[680px] h-12 rounded-full blur-3xl"
+                  <div
+                    className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[680px] h-12 rounded-full blur-3xl"
                     style={{
                       background: 'radial-gradient(ellipse, rgba(0, 0, 0, 0.3) 0%, transparent 70%)',
                     }}
@@ -415,8 +415,8 @@ export function Cover() {
                 </div>
 
                 {/* iPhone - floating in front on the right */}
-                <div 
-                  className="absolute right-4 bottom-12 z-30"
+                <div
+                  className="absolute right-2 bottom-8 lg:right-4 lg:bottom-12 z-50"
                   style={{
                     transform: 'translateZ(120px) rotateY(-8deg) rotateZ(2deg)',
                     transformStyle: 'preserve-3d',
@@ -432,8 +432,8 @@ export function Cover() {
                   />
 
                   {/* Phone frame */}
-                  <div 
-                    className="relative w-[180px] h-[360px] rounded-[2.5rem] overflow-hidden"
+                  <div
+                    className="relative w-40 h-80 lg:w-[180px] lg:h-[360px] rounded-[2.5rem] overflow-hidden"
                     style={{
                       background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -543,9 +543,9 @@ export function Cover() {
                   </div>
                 </div>
 
-                {/* Floating badge */}
-                <div 
-                  className="absolute -left-32 top-20 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-gray-200/50"
+                {/* Floating badge - hidden on mobile */}
+                <div
+                  className="hidden lg:block absolute -left-32 top-20 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-gray-200/50"
                   style={{
                     animation: 'float 3.5s ease-in-out infinite',
                     boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -558,8 +558,8 @@ export function Cover() {
                   </div>
                 </div>
 
-                <div 
-                  className="absolute -right-24 -bottom-12 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-blue-200/50"
+                <div
+                  className="hidden lg:block absolute -right-24 -bottom-12 bg-white/95 backdrop-blur-xl rounded-2xl px-5 py-3 border border-blue-200/50"
                   style={{
                     animation: 'float 3.5s ease-in-out infinite',
                     boxShadow: '0 20px 50px rgba(59, 130, 246, 0.15), 0 0 0 1px rgba(59, 130, 246, 0.1)',
@@ -579,11 +579,18 @@ export function Cover() {
         <div className="relative border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
           <div className="max-w-[1600px] mx-auto px-8 lg:px-16 py-6">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div 
-                className="text-white/40 text-xs font-medium"
+              <div
+                className="flex items-center gap-2 text-white/60 text-xs font-medium group cursor-pointer hover:text-white/80 transition-colors"
                 style={{ fontFamily: 'DM Sans, sans-serif' }}
+                onClick={() => {
+                  const target = document.getElementById('problem');
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
-                Scroll to explore the complete case study →
+                <span>Scroll to explore the complete case study</span>
+                <span className="inline-block group-hover:translate-y-1 transition-transform">↓</span>
               </div>
               <div className="flex gap-10">
                 {[

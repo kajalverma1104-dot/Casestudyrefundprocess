@@ -49,7 +49,6 @@ export function ProblemStatement() {
               className="bg-[#F5F7FF] border border-[#E0E8FF] rounded-2xl p-6 hover:shadow-md transition-all hover:-translate-y-0.5"
             >
               <div className="text-3xl mb-3">{s.icon}</div>
-              <div className={`text-4xl font-black mb-2 ${s.color}`}>{s.value}</div>
               <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
