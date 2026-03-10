@@ -202,8 +202,8 @@ export function Cover() {
               >
                 {[
                   { value: "50+", label: "Reviews Analyzed", color: "from-blue-400 to-cyan-400" },
-                  { value: "10+", label: "Screens Redesigned", color: "from-purple-400 to-pink-400" },
-                  { value: "2wk", label: "Design Sprint", color: "from-orange-400 to-red-400" },
+                  { value: "5", label: "Key Screens Redesigned", color: "from-purple-400 to-pink-400" },
+                  { value: "2 weeks", label: "Exploration & Design", color: "from-orange-400 to-red-400" },
                 ].map((stat, i) => (
                   <div key={i} className="group">
                     <div 
