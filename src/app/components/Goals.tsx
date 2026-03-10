@@ -12,7 +12,7 @@ const goals = [
     num: "01",
     title: "Radical Transparency",
     desc: "Every step of the refund pipeline should be visible. Users should know exactly where their money is at any point.",
-    kpi: "Status-check support calls ↓ 60%",
+    kpi: "Reduce support calls related to refund status",
     icon: "👁️",
     accent: "#E8003D",
     bg: "bg-red-50 border-red-100",
@@ -22,7 +22,7 @@ const goals = [
     num: "02",
     title: "Proactive Communication",
     desc: "Push notifications, SMS, and email at every milestone — initiated, processed, credited. No more radio silence.",
-    kpi: "Notification open rate > 85%",
+    kpi: "High engagement with refund milestone notifications",
     icon: "🔔",
     accent: "#FF6F00",
     bg: "bg-orange-50 border-orange-100",
@@ -32,7 +32,7 @@ const goals = [
     num: "03",
     title: "Informed Cancellation",
     desc: "Before confirming, show users an exact refund breakdown. No surprises, no disputes.",
-    kpi: "Dispute calls ↓ 40%",
+    kpi: "Reduce refund disputes and policy confusion",
     icon: "🧮",
     accent: "#6C3FE8",
     bg: "bg-purple-50 border-purple-100",
@@ -42,7 +42,7 @@ const goals = [
     num: "04",
     title: "Zero-Friction Support",
     desc: "If something goes wrong, users should reach a resolution in ≤2 taps. Context-aware chatbot, not generic scripts.",
-    kpi: "Chatbot resolution rate > 70%",
+    kpi: "Higher first-contact resolution through chatbot",
     icon: "💬",
     accent: "#0D9E6E",
     bg: "bg-emerald-50 border-emerald-100",
@@ -50,9 +50,9 @@ const goals = [
   },
   {
     num: "05",
-    title: "Surface Refund Status",
+    title: "Surface Active Refunds",
     desc: "Active refunds should appear on the home screen. Users shouldn't need to dig 4 levels deep to find their refund status.",
-    kpi: "Time to find status < 15 seconds",
+    kpi: "Refund status discoverable in seconds",
     icon: "🗺️",
     accent: "#1565C0",
     bg: "bg-blue-50 border-blue-100",
@@ -62,7 +62,7 @@ const goals = [
     num: "06",
     title: "Rebuild Trust",
     desc: "Every design decision should answer the user's core emotional need: 'My money is safe and it is coming back.'",
-    kpi: "Refund NPS score > 60",
+    kpi: "Improved trust and satisfaction with refund experience",
     icon: "🤝",
     accent: "#E8003D",
     bg: "bg-red-50 border-red-100",
@@ -79,7 +79,7 @@ export function Goals() {
           What success looks like
         </h2>
         <p className="text-gray-500 text-lg max-w-2xl mb-14 leading-relaxed">
-          Six measurable design goals that guided every redesign decision — each mapped to a real KPI.
+         Six design principles guiding the redesign of the refund experience.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
