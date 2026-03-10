@@ -4,7 +4,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div className="w-8 h-0.5 bg-[#E8003D]" />
-      <span className="text-[#E8003D] text-xs tracking-[0.2em] uppercase font-bold">{children}</span>
+      <span className="text-[#E8003D] text-xs tracking-[0.2em] uppercase font-black">{children}</span>
     </div>
   );
 }
@@ -12,8 +12,7 @@ function SectionLabel({ children }: { children: string }) {
 function Phone({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-[260px] flex-shrink-0 bg-[#0D1B3E] rounded-[2.75rem] p-[5px] shadow-2xl mx-auto">
-      <div className="w-full h-full bg-white rounded-[2.4rem] overflow-hidden relative">
-        {/* Notch */}
+      <div className="w-full h-full bg-[#F5F7FF] rounded-[2.4rem] overflow-hidden relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#0D1B3E] rounded-b-xl z-20" />
         {children}
       </div>
@@ -32,12 +31,12 @@ function Screen1() {
         </div>
       </div>
       <div className="p-4 space-y-3">
-        <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">Refund Breakdown</div>
-        <div className="bg-[#F5F7FF] rounded-xl p-3 space-y-2">
+        <div className="text-[10px] text-gray-400 font-black uppercase tracking-wide">Refund Breakdown</div>
+        <div className="bg-white rounded-xl p-3 space-y-2 shadow-sm border border-gray-100">
           {[
             { l: "Ticket Price Paid", v: "₹6,200", c: "text-gray-800" },
-            { l: "Airline Cancellation Fee", v: "– ₹1,200", c: "text-red-500" },
-            { l: "MMT Convenience Fee", v: "– ₹770", c: "text-red-500" },
+            { l: "Airline Cancellation Fee", v: "– ₹1,200", c: "text-[#E8003D]" },
+            { l: "MMT Convenience Fee", v: "– ₹770", c: "text-[#E8003D]" },
             { l: "GST (non-refundable)", v: "– ₹0", c: "text-gray-400" },
           ].map((r) => (
             <div key={r.l} className="flex justify-between">
@@ -72,7 +71,7 @@ function Screen2() {
         </div>
       </div>
       <div className="p-4">
-        <div className="bg-[#F5F7FF] rounded-2xl p-3 mb-3">
+        <div className="bg-white rounded-2xl p-3 mb-3 shadow-sm border border-gray-100">
           <div className="flex justify-between mb-1">
             <span className="text-[9px] text-gray-400">DEL → BOM · #NF28476</span>
             <span className="text-[9px] text-green-600 font-black">On track</span>
@@ -108,7 +107,7 @@ function Screen2() {
         </div>
 
         <div className="space-y-2">
-          <button className="w-full border border-gray-200 text-gray-500 text-[10px] py-2 rounded-xl font-bold">🔔 Set Refund Notification</button>
+          <button className="w-full border border-gray-200 text-gray-500 text-[10px] py-2 rounded-xl font-bold bg-white">🔔 Set Refund Notification</button>
           <button className="w-full bg-[#E8003D] text-white text-[10px] py-2 rounded-xl font-bold">💬 Chat with Support</button>
         </div>
       </div>
@@ -127,7 +126,7 @@ function Screen3() {
         </div>
       </div>
       <div className="p-4 space-y-3">
-        <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">Refund Updates</div>
+        <div className="text-[10px] text-gray-400 font-black uppercase tracking-wide">Refund Updates</div>
         {[
           { icon: "✅", title: "Cancellation Confirmed", body: "DEL→BOM cancelled. Refund of ₹4,230 processing.", time: "15 Mar · 2:35 PM", bg: "bg-green-50 border-green-100", new: true },
           { icon: "🏦", title: "Refund Initiated", body: "₹4,230 sent to HDFC Credit Card. Expected: 22 Mar.", time: "17 Mar · 9:05 AM", bg: "bg-blue-50 border-blue-100", new: true },
@@ -161,26 +160,24 @@ function Screen4() {
         </div>
       </div>
       <div className="p-4 space-y-3">
-        <div className="bg-[#F5F7FF] rounded-xl p-3">
+        <div className="bg-purple-50 rounded-xl p-3 border border-purple-100">
           <div className="text-[10px] font-black text-gray-700 mb-1">Your active refund</div>
           <div className="flex justify-between text-[9px]">
             <span className="text-gray-400">DEL → BOM</span>
             <span className="text-[#E8003D] font-black">₹4,230 · Initiated</span>
           </div>
         </div>
-        {/* Chat bubbles */}
         <div className="space-y-2">
           <div className="bg-[#6C3FE8] text-white text-[10px] rounded-2xl rounded-tl-none px-3 py-2 max-w-[80%]">
             Hi! I can see your refund of ₹4,230 is on its way to your HDFC Credit Card. Expected by 22 Mar. How can I help?
           </div>
-          <div className="bg-gray-100 text-gray-700 text-[10px] rounded-2xl rounded-tr-none px-3 py-2 max-w-[80%] ml-auto">
+          <div className="bg-white text-gray-700 text-[10px] rounded-2xl rounded-tr-none px-3 py-2 max-w-[80%] ml-auto border border-gray-100">
             Why hasn't it arrived yet? It says 22 Mar but nothing.
           </div>
           <div className="bg-[#6C3FE8] text-white text-[10px] rounded-2xl rounded-tl-none px-3 py-2 max-w-[80%]">
             I've raised a priority ticket for you (#T94712). Your bank typically takes 1 extra day. You'll get an SMS once it hits.
           </div>
         </div>
-        {/* Quick replies */}
         <div className="flex flex-wrap gap-1.5">
           {["Track my refund", "Raise a complaint", "Talk to agent"].map((q) => (
             <div key={q} className="border border-[#6C3FE8] text-[#6C3FE8] text-[9px] px-2 py-1 rounded-full font-bold">{q}</div>
@@ -207,7 +204,7 @@ function Screen5() {
         </div>
       </div>
       <div className="p-4 space-y-3">
-        <div className="bg-green-50 border border-green-100 rounded-xl p-3">
+        <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
           <div className="text-green-700 text-[10px] font-black mb-1">Refund Timeline</div>
           <div className="space-y-1">
             {[["Cancelled", "15 Mar"], ["Approved", "16 Mar"], ["Initiated", "17 Mar"], ["Credited", "22 Mar ✓"]].map(([e, d]) => (
@@ -263,8 +260,8 @@ export function RedesignedScreens() {
               onClick={() => setActive(i)}
               className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-black transition-all border ${
                 active === i
-                  ? "bg-[#0D1B3E] text-white border-[#0D1B3E] shadow-lg"
-                  : "bg-white text-gray-500 border-gray-200 hover:border-gray-300"
+                  ? "bg-[#E8003D] text-white border-[#E8003D] shadow-md shadow-red-100"
+                  : "bg-white text-gray-500 border-gray-200 hover:border-[#E8003D] hover:text-[#E8003D]"
               }`}
             >
               {s.key}. {s.label}
@@ -281,10 +278,10 @@ export function RedesignedScreens() {
           {/* Details */}
           <div className="flex-1 max-w-md">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
-              <span className="bg-green-100 text-green-700 border border-green-200 text-xs font-black px-3 py-1 rounded-full">
+              <span className="bg-green-50 text-green-700 border border-green-200 text-xs font-black px-3 py-1 rounded-full">
                 ✅ {screens[active].tag}
               </span>
-              <span className="text-gray-500 text-sm">Screen {screens[active].key} of 5</span>
+              <span className="text-gray-400 text-sm">Screen {screens[active].key} of 5</span>
             </div>
             <h3 className="text-3xl font-black text-[#0D1B3E] mb-3">{screens[active].label}</h3>
             <p className="text-gray-500 text-lg leading-relaxed mb-8">{screens[active].desc}</p>
@@ -301,7 +298,7 @@ export function RedesignedScreens() {
               <button
                 disabled={active === screens.length - 1}
                 onClick={() => setActive(active + 1)}
-                className="px-5 py-2.5 rounded-full bg-[#E8003D] text-white text-sm font-black disabled:opacity-30 hover:bg-[#c50028] transition-all shadow-lg shadow-red-200"
+                className="px-5 py-2.5 rounded-full bg-[#E8003D] text-white text-sm font-black disabled:opacity-30 hover:bg-[#c50028] transition-all shadow-md shadow-red-100"
               >
                 Next →
               </button>
@@ -313,7 +310,7 @@ export function RedesignedScreens() {
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`transition-all rounded-full ${active === i ? "w-8 h-2 bg-[#E8003D]" : "w-2 h-2 bg-gray-200"}`}
+                  className={`transition-all rounded-full ${active === i ? "w-8 h-2 bg-[#E8003D]" : "w-2 h-2 bg-gray-300 hover:bg-gray-400"}`}
                 />
               ))}
             </div>

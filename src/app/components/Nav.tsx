@@ -16,53 +16,65 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1B3E]/95 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      {/* MMT-style red top accent bar */}
+      <div className="h-0.5 bg-[#E8003D]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-13">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
-          <div className="flex items-center gap-1 bg-white rounded-lg px-2.5 py-1">
-            <span className="text-[#E8003D] font-black text-sm">make</span>
-            <span className="text-[#0D1B3E] font-black text-sm">my</span>
-            <span className="text-[#E8003D] font-black text-sm">trip</span>
+          <div className="flex items-center gap-0.5">
+            <span className="text-[#E8003D] font-black text-base tracking-tight">make</span>
+            <span className="text-[#1565C0] font-black text-base tracking-tight">my</span>
+            <span className="text-[#E8003D] font-black text-base tracking-tight">trip</span>
           </div>
-          <span className="text-white/40 text-xs hidden sm:block">· Refund UX Case Study</span>
+          <div className="h-4 w-px bg-gray-200 hidden sm:block" />
+          <span className="text-gray-400 text-xs hidden sm:block">Refund UX Case Study</span>
         </div>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-0.5">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-white/60 hover:text-white text-xs px-3 py-1.5 rounded-full hover:bg-white/10 transition-all"
+              className="text-gray-500 hover:text-[#E8003D] text-xs px-3 py-1.5 rounded-full hover:bg-red-50 transition-all font-bold"
             >
               {l.label}
             </a>
           ))}
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden text-white/70 hover:text-white"
-          onClick={() => setOpen(!open)}
-        >
-          <div className="w-5 flex flex-col gap-1">
-            <div className={`h-0.5 bg-current transition-all ${open ? "rotate-45 translate-y-1.5" : ""}`}></div>
-            <div className={`h-0.5 bg-current transition-all ${open ? "opacity-0" : ""}`}></div>
-            <div className={`h-0.5 bg-current transition-all ${open ? "-rotate-45 -translate-y-1.5" : ""}`}></div>
-          </div>
-        </button>
+        {/* CTA + Hamburger */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#overview"
+            className="hidden sm:inline-flex items-center gap-1.5 bg-[#E8003D] text-white text-xs font-black px-4 py-1.5 rounded-full hover:bg-[#c50028] transition-all shadow-sm"
+          >
+            ✈ Read Case Study
+          </a>
+          <button
+            className="lg:hidden text-gray-500 hover:text-[#E8003D] transition-colors"
+            onClick={() => setOpen(!open)}
+          >
+            <div className="w-5 flex flex-col gap-1.5">
+              <div className={`h-0.5 bg-current transition-all ${open ? "rotate-45 translate-y-2" : ""}`} />
+              <div className={`h-0.5 bg-current transition-all ${open ? "opacity-0" : ""}`} />
+              <div className={`h-0.5 bg-current transition-all ${open ? "-rotate-45 -translate-y-2" : ""}`} />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-[#0D1B3E] border-t border-white/10 px-4 py-3 grid grid-cols-3 gap-2">
+        <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-3 grid grid-cols-3 gap-1.5">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-white/70 hover:text-white text-xs text-center py-2 rounded-lg hover:bg-white/10 transition-all"
+              className="text-gray-600 hover:text-[#E8003D] text-xs text-center py-2 px-2 rounded-xl hover:bg-red-50 transition-all font-bold"
             >
               {l.label}
             </a>
