@@ -8,10 +8,10 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 const stats = [
-  { value: "Frequent Support Escalations", desc: "of users escalate refund queries to customer support", icon: "📞", color: "text-[#E8003D]" },
-  { value: "Unclear Refund Timelines", desc: "timelines unclear in many complaints", icon: "⏳", color: "text-[#FF6F00]" },
-  { value: "Negative User Sentiment", desc: "low ratings in refund related reviews", icon: "💔", color: "text-[#1565C0]" },
-  { value: "Rising refund complaints", desc: "spike in refund requests post-pandemic surge", icon: "📈", color: "text-[#E8003D]" },
+  { value: "Frequent Support Escalations", icon: "📞", color: "text-[#E8003D]" },
+  { value: "Unclear Refund Timelines", icon: "⏳", color: "text-[#FF6F00]" },
+  { value: "Negative User Sentiment", icon: "💔", color: "text-[#1565C0]" },
+  { value: "Rising refund complaints", icon: "📈", color: "text-[#E8003D]" },
 ];
 
 export function ProblemStatement() {
