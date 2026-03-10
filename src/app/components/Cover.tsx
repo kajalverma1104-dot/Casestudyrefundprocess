@@ -239,7 +239,7 @@ export function Cover() {
             >
               <div
                 ref={devicesRef}
-                className="relative"
+                className="relative overflow-visible flex justify-center items-center"
                 style={{
                   transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translateZ(${Math.abs(rotation.x) + Math.abs(rotation.y) * 2}px)`,
                   transformStyle: "preserve-3d",
@@ -265,7 +265,7 @@ export function Cover() {
                 >
                   {/* Screen */}
                   <div 
-                    className="relative w-[700px] h-[440px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
+                    className="relative w-[620px] h-[390px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-t-xl overflow-hidden border-t-[10px] border-x-[10px] border-gray-800"
                     style={{
                       boxShadow: `
                         0 40px 80px rgba(0, 0, 0, 0.5),
@@ -416,7 +416,7 @@ export function Cover() {
 
                 {/* iPhone - floating in front on the right */}
                 <div 
-                  className="absolute right-4 bottom-12 z-30"
+                  className="absolute -right-20 bottom-6 z-50"
                   style={{
                     transform: 'translateZ(120px) rotateY(-8deg) rotateZ(2deg)',
                     transformStyle: 'preserve-3d',
