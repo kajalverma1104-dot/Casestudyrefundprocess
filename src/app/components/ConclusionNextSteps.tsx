@@ -8,10 +8,10 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 const impact = [
-  { before: "62%", "projected after": "18%", label: "Support calls for refund status", icon: "📞", color: "text-[#0D9E6E]", bg: "bg-emerald-50 border-emerald-100" },
-  { before: "3.2 min", "projected after": "12 sec", label: "Time to find refund status", icon: "⏱", color: "text-[#1565C0]", bg: "bg-blue-50 border-blue-100" },
-  { before: "2.8★", "projected after": "4.2★", label: "Refund-related App Store rating", icon: "⭐", color: "text-[#FF6F00]", bg: "bg-orange-50 border-orange-100" },
-  { before: "73%", "projected after": "22%", label: "Chatbot escalations to human agent", icon: "🤖", color: "text-[#6C3FE8]", bg: "bg-purple-50 border-purple-100" },
+  { before: "62%", projectedafter: "18%", label: "Support calls for refund status", icon: "📞", color: "text-[#0D9E6E]", bg: "bg-emerald-50 border-emerald-100" },
+  { before: "3.2 min", "projectedafter": "12 sec", label: "Time to find refund status", icon: "⏱", color: "text-[#1565C0]", bg: "bg-blue-50 border-blue-100" },
+  { before: "2.8★", "projectedafter": "4.2★", label: "Refund-related App Store rating", icon: "⭐", color: "text-[#FF6F00]", bg: "bg-orange-50 border-orange-100" },
+  { before: "73%", "projectedafter": "22%", label: "Chatbot escalations to human agent", icon: "🤖", color: "text-[#6C3FE8]", bg: "bg-purple-50 border-purple-100" },
 ];
 
 const phases = [
