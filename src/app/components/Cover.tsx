@@ -475,7 +475,7 @@ export function Cover() {
 
                 {/* iPhone - overlapping bottom-right of laptop */}
                 <div 
-                  className="absolute right-24 bottom-4 z-50 translate-x-[30%]"
+                  className="absolute right-24 bottom-4 z-50"
                   style={{
                     transform: 'translateX(28%) translateZ(200px) rotateY(-10deg) rotateZ(3deg)',
                     transformStyle: 'preserve-3d',
