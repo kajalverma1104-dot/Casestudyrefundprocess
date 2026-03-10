@@ -275,7 +275,7 @@ export function Cover() {
                     }}
                   >
                     {/* Screen bezel */}
-                    <div className="absolute inset-[8px] border-[3px] border-black/80 rounded-lg overflow-visible">
+                    <div className="absolute top-[8px] left-[12px] right-[12px] bottom-[34px] border-[3px] border-black/80 rounded-lg overflow-hidden">
                       {/* Content area */}
                       <div className="w-full h-full bg-white">
                         {/* Browser chrome */}
