@@ -78,17 +78,6 @@ export function ConclusionNextSteps() {
             <div key={m.label} className={`border ${m.bg} rounded-2xl p-5 bg-white shadow-sm`}>
               <div className="text-2xl mb-3">{m.icon}</div>
               <div className="text-[10px] text-gray-400 uppercase tracking-wide mb-3 leading-relaxed font-bold">{m.label}</div>
-              <div className="flex items-center gap-3 mb-1">
-                <div>
-                  <div className="text-[9px] text-gray-400 font-bold">Before</div>
-                  <div className="text-xl font-black text-gray-200 line-through">{m.before}</div>
-                </div>
-                <div className="text-gray-200 text-lg font-black">→</div>
-                <div>
-                  <div className="text-[9px] text-gray-400 font-bold">After</div>
-                  <div className={`text-2xl font-black ${m.color}`}>{m.after}</div>
-                </div>
-              </div>
             </div>
           ))}
         </div>
