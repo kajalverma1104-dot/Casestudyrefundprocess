@@ -7,12 +7,6 @@ function SectionLabel({ children }: { children: string }) {
   );
 }
 
-const stats = [
-  { value: "62%", desc: "of users escalate refund queries to customer support", icon: "📞", color: "text-[#E8003D]" },
-  { value: "Refund", desc: "timelines unclear in many complaints", icon: "⏳", color: "text-[#FF6F00]" },
-  { value: "2.8★", desc: "low ratings in refund related reviews", icon: "💔", color: "text-[#1565C0]" },
-  { value: "Rising refund complaints", desc: "spike in refund requests post-pandemic surge", icon: "📈", color: "text-[#E8003D]" },
-];
 
 export function ProblemStatement() {
   return (
@@ -41,19 +35,6 @@ export function ProblemStatement() {
           </p>
         </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {stats.map((s) => (
-            <div
-              key={s.value}
-              className="bg-[#F5F7FF] border border-[#E0E8FF] rounded-2xl p-6 hover:shadow-md transition-all hover:-translate-y-0.5"
-            >
-              <div className="text-3xl mb-3">{s.icon}</div>
-              <div className={`text-4xl font-black mb-2 ${s.color}`}>{s.value}</div>
-              <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
-        </div>
 
         {/* HMW statement */}
         <div

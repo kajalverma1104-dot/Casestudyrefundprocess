@@ -7,18 +7,11 @@ function SectionLabel({ children }: { children: string }) {
   );
 }
 
-const impact = [
-  { before: "62%", after: "18%", label: "Support calls for refund status", icon: "📞", color: "text-[#0D9E6E]", bg: "bg-emerald-50 border-emerald-100" },
-  { before: "3.2 min", after: "12 sec", label: "Time to find refund status", icon: "⏱", color: "text-[#1565C0]", bg: "bg-blue-50 border-blue-100" },
-  { before: "2.8★", after: "4.2★", label: "Refund-related App Store rating", icon: "⭐", color: "text-[#FF6F00]", bg: "bg-orange-50 border-orange-100" },
-  { before: "73%", after: "22%", label: "Chatbot escalations to human agent", icon: "🤖", color: "text-[#6C3FE8]", bg: "bg-purple-50 border-purple-100" },
-];
 
 const phases = [
   {
     phase: "Phase 1",
     title: "Quick Wins",
-    time: "0 – 4 weeks",
     accentColor: "bg-[#0D9E6E]",
     bg: "bg-emerald-50 border-emerald-100",
     items: [
@@ -30,7 +23,6 @@ const phases = [
   {
     phase: "Phase 2",
     title: "Core Redesign",
-    time: "4 – 12 weeks",
     accentColor: "bg-[#E8003D]",
     bg: "bg-red-50 border-red-100",
     items: [
@@ -42,7 +34,6 @@ const phases = [
   {
     phase: "Phase 3",
     title: "Optimise & Scale",
-    time: "12 – 24 weeks",
     accentColor: "bg-[#6C3FE8]",
     bg: "bg-purple-50 border-purple-100",
     items: [
@@ -72,26 +63,6 @@ export function ConclusionNextSteps() {
           Projected impact from usability tests on the redesigned prototype — plus a phased roadmap to ship without waiting for a full redesign cycle.
         </p>
 
-        {/* Impact metrics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {impact.map((m) => (
-            <div key={m.label} className={`border ${m.bg} rounded-2xl p-5 bg-white shadow-sm`}>
-              <div className="text-2xl mb-3">{m.icon}</div>
-              <div className="text-[10px] text-gray-400 uppercase tracking-wide mb-3 leading-relaxed font-bold">{m.label}</div>
-              <div className="flex items-center gap-3 mb-1">
-                <div>
-                  <div className="text-[9px] text-gray-400 font-bold">Before</div>
-                  <div className="text-xl font-black text-gray-200 line-through">{m.before}</div>
-                </div>
-                <div className="text-gray-200 text-lg font-black">→</div>
-                <div>
-                  <div className="text-[9px] text-gray-400 font-bold">After</div>
-                  <div className={`text-2xl font-black ${m.color}`}>{m.after}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Roadmap */}
         <h3 className="text-xl font-black text-[#0D1B3E] mb-6">Implementation Roadmap</h3>
@@ -100,7 +71,6 @@ export function ConclusionNextSteps() {
             <div key={p.phase} className={`border ${p.bg} rounded-3xl p-6 bg-white shadow-sm`}>
               <div className="flex items-center gap-3 mb-4">
                 <span className={`${p.accentColor} text-white text-xs font-black px-3 py-1 rounded-full`}>{p.phase}</span>
-                <span className="text-gray-400 text-xs font-bold">{p.time}</span>
               </div>
               <div className="font-black text-[#0D1B3E] text-lg mb-4">{p.title}</div>
               <ul className="space-y-3">
