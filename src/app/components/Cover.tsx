@@ -108,6 +108,16 @@ export function Cover() {
           -webkit-text-fill-color: transparent;
           animation: shimmer 3s linear infinite;
         }
+
+        @keyframes scrollDot {
+          0%, 100% { transform: translateY(0); opacity: 1; }
+          50% { transform: translateY(4px); opacity: 0.3; }
+        }
+
+        @keyframes chevronFade {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.8; }
+        }
       `}</style>
 
       <section className="relative min-h-screen bg-[#0A1628] flex flex-col overflow-hidden">
@@ -281,7 +291,7 @@ export function Cover() {
 
             {/* Right: Devices */}
             <div 
-              className={`relative w-full ${isLoaded ? 'animate-scale' : 'opacity-0'} hidden lg:flex justify-center items-center`}
+              className={`relative w-full ${isLoaded ? 'animate-scale' : 'opacity-0'} hidden lg:flex justify-center items-center pr-16`}
               style={{
                 perspective: "3000px",
                 animationDelay: '0.4s',
@@ -342,42 +352,42 @@ export function Cover() {
                         </div>
 
                         {/* Dashboard UI */}
-                        <div className="p-6 bg-gradient-to-br from-gray-50 to-white h-full overflow-hidden">
+                        <div className="p-4 bg-gradient-to-br from-gray-50 to-white h-full overflow-hidden flex flex-col">
                           {/* Header */}
-                          <div className="flex items-start justify-between mb-6">
+                          <div className="flex items-start justify-between mb-3">
                             <div>
                               <h2 
-                                className="text-xl font-bold text-gray-900 mb-1"
+                                className="text-lg font-bold text-gray-900 mb-0.5"
                                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
                               >
                                 Refund Tracker
                               </h2>
-                              <p className="text-xs text-gray-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                              <p className="text-[11px] text-gray-500" style={{ fontFamily: 'DM Sans, sans-serif' }}>
                                 Real-time refund status monitoring
                               </p>
                             </div>
-                            <div className="bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full text-xs font-semibold border border-emerald-200">
+                            <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-[11px] font-semibold border border-emerald-200">
                               ● Live Tracking
                             </div>
                           </div>
 
                           {/* Progress Card */}
-                          <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm mb-4">
-                            <div className="flex items-center justify-between mb-4">
+                          <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm mb-3">
+                            <div className="flex items-center justify-between mb-3">
                               <div>
-                                <div className="text-xs font-semibold text-gray-700 mb-1">Booking Reference</div>
-                                <div className="text-sm text-gray-500">#NF28476 • DEL → BOM</div>
+                                <div className="text-[11px] font-semibold text-gray-700 mb-0.5">Booking Reference</div>
+                                <div className="text-xs text-gray-500">#NF28476 • DEL → BOM</div>
                               </div>
                               <div className="text-right">
-                                <div className="text-xs text-gray-500 mb-1">Initiated</div>
-                                <div className="text-sm font-semibold text-gray-700">Mar 8, 2026</div>
+                                <div className="text-[11px] text-gray-500 mb-0.5">Initiated</div>
+                                <div className="text-xs font-semibold text-gray-700">Mar 8, 2026</div>
                               </div>
                             </div>
 
                             {/* Progress Timeline */}
-                            <div className="relative mb-5">
-                              <div className="absolute top-4 left-4 right-4 h-[2px] bg-gray-200"></div>
-                              <div className="absolute top-4 left-4 w-[45%] h-[2px] bg-gradient-to-r from-emerald-500 to-blue-500"></div>
+                            <div className="relative mb-3">
+                              <div className="absolute top-3.5 left-3 right-3 h-[2px] bg-gray-200"></div>
+                              <div className="absolute top-3.5 left-3 w-[45%] h-[2px] bg-gradient-to-r from-emerald-500 to-blue-500"></div>
                               
                               <div className="relative flex justify-between">
                                 {[
@@ -386,9 +396,9 @@ export function Cover() {
                                   { label: 'Approved', status: 'pending', icon: '3' },
                                   { label: 'Credited', status: 'pending', icon: '4' }
                                 ].map((step, i) => (
-                                  <div key={i} className="flex flex-col items-center gap-2 z-10">
+                                  <div key={i} className="flex flex-col items-center gap-1.5 z-10">
                                     <div 
-                                      className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                                      className={`w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold transition-all ${
                                         step.status === 'complete' 
                                           ? 'bg-gradient-to-br from-emerald-400 to-emerald-600 text-white shadow-lg shadow-emerald-500/30' :
                                         step.status === 'active' 
@@ -407,14 +417,14 @@ export function Cover() {
                             </div>
 
                             {/* ETA Box */}
-                            <div className="bg-blue-50 border border-blue-200 rounded-xl p-3">
-                              <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white text-base">
+                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
+                              <div className="flex items-center gap-2">
+                                <div className="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center text-white text-sm shrink-0">
                                   ⏱
                                 </div>
                                 <div className="flex-1">
-                                  <div className="text-xs font-semibold text-blue-900 mb-0.5">Expected Completion</div>
-                                  <div className="text-xs text-blue-700">3-5 business days</div>
+                                  <div className="text-[11px] font-semibold text-blue-900">Expected Completion</div>
+                                  <div className="text-[11px] text-blue-700">3-5 business days</div>
                                 </div>
                               </div>
                             </div>
@@ -423,11 +433,11 @@ export function Cover() {
                           {/* Info Grid */}
                           <div className="grid grid-cols-2 gap-3">
                             <div className="bg-white rounded-xl border border-gray-200 p-3">
-                              <div className="text-xs text-gray-500 mb-1">Refund Amount</div>
-                              <div className="text-lg font-bold text-gray-900">₹4,850</div>
+                              <div className="text-[11px] text-gray-500 mb-1">Refund Amount</div>
+                              <div className="text-base font-bold text-gray-900">₹4,850</div>
                             </div>
                             <div className="bg-white rounded-xl border border-gray-200 p-3">
-                              <div className="text-xs text-gray-500 mb-1">Method</div>
+                              <div className="text-[11px] text-gray-500 mb-1">Method</div>
                               <div className="text-sm font-semibold text-gray-700">Original Payment</div>
                             </div>
                           </div>
@@ -463,11 +473,11 @@ export function Cover() {
                   />
                 </div>
 
-                {/* iPhone - floating in front on the right */}
+                {/* iPhone - overlapping bottom-right of laptop */}
                 <div 
-                  className="absolute -right-6 bottom-2 z-50"
+                  className="absolute right-0 bottom-6 z-50 translate-x-[30%]"
                   style={{
-                    transform: 'translateZ(200px) rotateY(-10deg) rotateZ(3deg)',
+                    transform: 'translateX(28%) translateZ(200px) rotateY(-10deg) rotateZ(3deg)',
                     transformStyle: 'preserve-3d',
                     animation: 'float 4s ease-in-out infinite',
                   }}
@@ -600,12 +610,40 @@ export function Cover() {
         <div className="relative border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
           <div className="max-w-[1600px] mx-auto px-8 lg:px-16 py-6">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div 
-                className="text-white/40 text-xs font-medium"
-                style={{ fontFamily: 'DM Sans, sans-serif' }}
-              >
-                Scroll to explore the complete case study →
+              
+              {/* Animated scroll indicator */}
+              <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}>
+                {/* Mouse icon */}
+                <div 
+                  className="relative w-5 h-8 rounded-full border-2 border-white/30 group-hover:border-white/60 transition-colors duration-300 flex justify-center pt-1.5"
+                >
+                  {/* Scroll wheel dot */}
+                  <div 
+                    className="w-0.5 h-1.5 bg-white/50 group-hover:bg-white/80 rounded-full transition-colors duration-300"
+                    style={{ animation: 'scrollDot 1.5s ease-in-out infinite' }}
+                  />
+                </div>
+                {/* Chevrons */}
+                <div className="flex flex-col gap-0.5">
+                  {[0, 1, 2].map((i) => (
+                    <svg
+                      key={i}
+                      width="10" height="6" viewBox="0 0 10 6"
+                      className="text-white/30 group-hover:text-white/60 transition-colors duration-300"
+                      style={{ animation: `chevronFade 1.5s ease-in-out infinite`, animationDelay: `${i * 0.2}s` }}
+                    >
+                      <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ))}
+                </div>
+                <span 
+                  className="text-white/40 group-hover:text-white/70 text-xs font-medium transition-colors duration-300"
+                  style={{ fontFamily: 'DM Sans, sans-serif' }}
+                >
+                  Scroll to explore
+                </span>
               </div>
+
               <div className="flex gap-10">
                 {[
                   ["Platform", "iOS · Android · Web"],
