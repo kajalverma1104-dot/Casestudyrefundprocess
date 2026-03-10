@@ -8,7 +8,7 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 const roles = [
-  { icon: "🧑‍🎨", label: "My Role", value: "UX Researcher & Product Designer" },
+  { icon: "🧑‍🎨", label: "My Role", value: "As part of this project, I approached the refund experience from a product management perspective. I analyzed the existing refund journey, identified user pain points, and evaluated the experience using usability heuristics. Based on these insights, I defined key product goals and conceptualized solutions to improve refund transparency, communication, and user trust." },
   { icon: "📅", label: "Timeline", value: "2-Week Independent Case Study · 2026" },
   { icon: "📱", label: "Platform", value: "iOS & Android (MakeMyTrip App)" },
   { icon: "🔧", label: "Tools", value: "Figma, FigJam, Maze, Notion" },
